@@ -1,0 +1,17 @@
+{* Latte template *}
+{block content}
+    
+    <link href="{$basePath}/css/newcss.css" rel="stylesheet" type="text/css" />
+    <h3 n:block="title">Registrace uživatele</h3>
+ 
+    {if $invalideInput}
+        <h3 id=podmenu style="color : red ">Zadej prosim vsechna policka!</h3>
+    {/if}
+    
+    <div>
+        {control registraceForm}
+    </div>        
+    
+    <a id=patickaR href="{$presenter->link('FirstPage:firstpage')}">Next</a>
+    
+{/block}

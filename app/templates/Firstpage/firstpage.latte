@@ -1,0 +1,43 @@
+{*
+   Štefan Vereš
+*}
+
+{block content}
+
+<link href="{$basePath}/css/newcss.css" rel="stylesheet" type="text/css" />
+
+<h3 n:block="title">Výpis z tabuľky</h3>
+<h3 id =hlavickaRR>Výběr uživatele</h3>
+    
+    {if $invalideInput}
+        <h3 id=patickaR style="color : red ">Zadej prosim vsechna policka!</h3>
+    {/if}
+
+<div>
+    <div>
+        <table border="4">
+            <tr>
+                <td>*   ID   *</td> <td>*  JMÉNO  *</td> 
+                <td>* PŘIJMĚNÍ *</td> <td>* ROK NAROZENÍ *</td>
+            </tr>
+            <tr n:foreach="$users as $user">
+                <td>{$user->uid}</td>
+                <td>{$user->first_name}</td>
+                <td>{$user->last_name}</td>
+                <td>{$user->birth_year}</td>
+            </tr>
+        </table>
+    </div>
+    <div id = podhlavickaRR>
+        {control comboUsers}
+    </div>     
+    
+    <h3 id =menuRR>Registrace / změna údajů uživatele</h3>
+    <div id = podmenuRR>
+        {control changeUser}
+    </div>             
+    
+</div>
+                
+<a id=paticka href="{$presenter->link('Registrace:registrace')}">Back</a>
+{/block}
